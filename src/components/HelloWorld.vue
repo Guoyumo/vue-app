@@ -34,10 +34,10 @@ export default {
     }
   },
   created: function () {
-    console.log(1)
+    console.log(1);
   },
   mounted() {
-    console.log(2)
+    console.log(this.$store.state.isStore);
   }
 
 }
