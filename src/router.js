@@ -1,19 +1,19 @@
 import VueRouter from "vue-router";
-import helloWord from './components/HelloWorld'
-import second from './components/second'
+
 
 const routes = [
     {
         path:'/',
-        component:helloWord
+        component: reslove => require(['./components/HelloWorld'],reslove)
     },
     {
         path:'/second',
-        component:second
+        component:reslove => require(['./components/second'],reslove)
     }
 ];
 
 const router = new VueRouter({
+    mode: 'history',
     routes
 });
 
