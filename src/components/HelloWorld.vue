@@ -5,10 +5,13 @@
     <input type="number" v-model="inputValue">
     <span>{{computedInputValue}}</span>
     <button @click="changeTitle">change</button>
+    <div>{{number}}</div>
   </div>
 </template>
 
 <script>
+  import { mapState } from 'vuex'
+  import { mapActions } from 'vuex'
 export default {
   name: 'HelloWorld',
   data(){
@@ -22,22 +25,28 @@ export default {
   },
   methods:{
     changeTitle(){
-      this.title = "123321123";
-      console.log(this.inputValue)
-    }
+      this.increment({increase:10});
+      this.$store.dispatch('testA');
+      this.$router.push('/second')
+    },
+    ...mapActions('module2',[
+            'increment'
+    ])
   },
   computed:{
     computedInputValue(){
       let inputValue = this.inputValue;
       inputValue = parseInt(inputValue);
       return inputValue * inputValue;
-    }
+    },
+    ...mapState('module1',[
+      'number'
+    ])
   },
   created: function () {
-    console.log(1);
   },
   mounted() {
-    console.log(this.$store.state.isStore);
+    console.log(this.$store.state.test)
   }
 
 }
