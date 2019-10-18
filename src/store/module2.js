@@ -1,3 +1,5 @@
+import axios from 'axios';
+axios.defaults.baseURL = '/dev';
 const state = {
     number:5
 };
@@ -15,6 +17,10 @@ const mutations = {
 const actions = {
     increment: ({commit},payload) =>{
         commit('changeNumber',payload);
+
+        axios.post('/teacherHomeWork/getHomeworkQuestion',{homeworkId:134}).then((response)=>{
+            console.log(response);
+        })
     }
 };
 

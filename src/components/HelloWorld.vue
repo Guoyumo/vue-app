@@ -26,8 +26,10 @@ export default {
   methods:{
     changeTitle(){
       this.increment({increase:10});
-      this.$store.dispatch('testA');
-      this.$router.push('/second')
+      // this.$store.dispatch('testA');
+      // this.$router.push('/second')
+
+      console.log(process.env.NODE_ENV);
     },
     ...mapActions('module2',[
             'increment'
