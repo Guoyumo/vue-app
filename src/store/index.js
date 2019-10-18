@@ -1,8 +1,10 @@
+// vuex 主入口 全局数据
+// created by gym 2019/10/17
 
-//引入vue和Vuex
+
 import Vue from 'vue'
 import Vuex from 'vuex'
-import module1 from './module1'
+import point from './point'
 import module2 from './module2'
 
 //引入之后，对vuex进行引用
@@ -11,20 +13,14 @@ Vue.use(Vuex)
 
 const  store =  new Vuex.Store({
     state:{
-        test:"rootState"
+        test:"全局数据"
     },
     mutations:{
-        testM: state =>{
-            state.test = "123"
-        }
     },
     actions : {
-        testA: ({commit}) => {
-            commit('testM')
-        }
     },
     modules: {
-        module1,
+        point,
         module2
     }
 });
